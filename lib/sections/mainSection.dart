@@ -17,6 +17,7 @@ import 'package:dhiravrana/sections/services/services.dart';
 import 'package:dhiravrana/widget/arrowOnTop.dart';
 import 'package:dhiravrana/widget/footer.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:dhiravrana/widget/timeLine.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -34,6 +35,7 @@ class _MainPageState extends State<MainPage> {
     "ABOUT",
     "SERVICES",
     "PROJECTS",
+    "TIMELINE",
     "CONTACT"
   ];
 
@@ -71,8 +73,10 @@ class _MainPageState extends State<MainPage> {
       return Services();
     } else if (i == 3) {
       return Portfolio();
-    } else if (i == 4) {
+    } else if(i == 4){
       return Contact();
+    // } else if (i == 5) {
+    //   return Contact();
     } else if (i == 5) {
       return Footer();
     } else {
@@ -239,7 +243,7 @@ class _MainPageState extends State<MainPage> {
                   borderRadius: BorderRadius.circular(5.0),
                   side: BorderSide(color: kPrimaryColor)),
               onPressed: () {
-                html.window.open('', "pdf");
+                html.window.open('https://drive.google.com/file/d/1FQVi8_gTUDTz1F7_nT3AXA7RFP5pJWWr/view?usp=sharing', "pdf");
               },
               child: Text(
                 "CV/RESUME",
@@ -268,7 +272,8 @@ class _MainPageState extends State<MainPage> {
                   borderRadius: BorderRadius.circular(5.0),
                   side: BorderSide(color: kPrimaryColor)),
               onPressed: () {
-                html.window.open('', "pdf");
+                html.window.open('https://drive.google.com/file/d/1SaNng1Tlc4gFXt817Fo6uaurAXHfEVf2/view?usp=sharing', "pdf");
+                
               },
               child: Text(
                 "Cover Letter",
@@ -341,7 +346,7 @@ class _MainPageState extends State<MainPage> {
                       borderRadius: BorderRadius.circular(5.0),
                       side: BorderSide(color: kPrimaryColor)),
                   onPressed: () {
-                    launchURL("");
+                    launchURL("https://drive.google.com/file/d/1FQVi8_gTUDTz1F7_nT3AXA7RFP5pJWWr/view?usp=sharing");
                   },
                   child: ListTile(
                     leading: Icon(
@@ -366,7 +371,7 @@ class _MainPageState extends State<MainPage> {
                       borderRadius: BorderRadius.circular(5.0),
                       side: BorderSide(color: kPrimaryColor)),
                   onPressed: () {
-                    launchURL("");
+                    launchURL("https://drive.google.com/file/d/1SaNng1Tlc4gFXt817Fo6uaurAXHfEVf2/view?usp=sharing");
                   },
                   child: ListTile(
                     leading: Icon(

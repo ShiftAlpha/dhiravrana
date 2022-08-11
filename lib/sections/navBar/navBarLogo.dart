@@ -15,14 +15,14 @@ class NavBarLogo extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "< ",
+            "> ",
             style: TextStyle(
               fontSize: height ?? 20,
               color: _themeProvider.lightTheme ? Colors.black : Colors.white,
             ),
           ),
           Text(
-            "Dhirav",
+            "DHI",
             style: TextStyle(
               fontFamily: "Agustina",
               fontSize: height ?? 20,
@@ -30,7 +30,7 @@ class NavBarLogo extends StatelessWidget {
             ),
           ),
           Text(
-            MediaQuery.of(context).size.width >= 1000 ? " />\t\t" : " />",
+            MediaQuery.of(context).size.width >= 1000 ? " />\t\t" : " <",
             style: TextStyle(
               fontSize: height ?? 20,
               color: _themeProvider.lightTheme ? Colors.black : Colors.white,

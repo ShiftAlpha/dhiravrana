@@ -25,11 +25,12 @@ class _HomeMobileState extends State<HomeMobile> {
       child: Stack(
         children: [
           Positioned(
-            bottom: 0.0,
-            right: -width * 0.25,
+            bottom: 5,
+            // left: 2,
+            right: 0.01,
             child: Opacity(
               opacity: 0.9,
-              // child: Image.asset('', height: height * 0.65),
+              child: Image.asset('assets/dp.jpg', height: height * 0.75),
             ),
           ),
           Container(

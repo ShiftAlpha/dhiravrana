@@ -30,10 +30,10 @@ class HomeDesktop extends StatelessWidget {
                 offset: Offset(0, 0),
                 delay: Duration(seconds: 1),
                 duration: Duration(milliseconds: 800),
-                // child: Image.asset(
-                //   '',
-                //   height: width < 1200 ? height * 0.8 : height * 0.85,
-                // ),
+                child: Image.asset(
+                  'assets/dp.jpg',
+                  height: width < 1200 ? height * 0.8 : height * 0.85,
+                ),
               ),
             ),
           ),
