@@ -234,7 +234,7 @@ class _MainPageState extends State<MainPage> {
           delay: Duration(milliseconds: 100),
           duration: Duration(milliseconds: 250),
           child: Container(
-            height: 60.0,
+            height: 60.0, 
             width: 120.0,
             padding: const EdgeInsets.all(8.0),
             child: MaterialButton(
@@ -243,7 +243,7 @@ class _MainPageState extends State<MainPage> {
                   borderRadius: BorderRadius.circular(5.0),
                   side: BorderSide(color: kPrimaryColor)),
               onPressed: () {
-                html.window.open('https://drive.google.com/file/d/1FQVi8_gTUDTz1F7_nT3AXA7RFP5pJWWr/view?usp=sharing', "pdf");
+                html.window.open('https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing', "pdf");
               },
               child: Text(
                 "CV/RESUME",
