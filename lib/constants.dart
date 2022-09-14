@@ -153,18 +153,14 @@ final kProjectsLinks = [
 // Contact
 final kContactIcons = [
   Icons.meeting_room_outlined,
-  // Icons.email_outlined
-  // Icons.message_outlined,
 ];
 
 final kContactTitles = [
   "Location",
-  // "Email",
 ];
 
 final kContactDetails = ["Calendly Meeting"];
 
 final kContactLinks = [
   "https://calendly.com/dhiravrana",
-  // "",
 ];
