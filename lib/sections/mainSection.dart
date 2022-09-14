@@ -35,8 +35,7 @@ class _MainPageState extends State<MainPage> {
     "ABOUT",
     "SERVICES",
     "PROJECTS",
-    "TIMELINE",
-    "CONTACT"
+    "CONTACT",
   ];
 
   final List<IconData> _sectionsIcons = [
