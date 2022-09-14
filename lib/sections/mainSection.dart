@@ -245,7 +245,7 @@ class _MainPageState extends State<MainPage> {
                 html.window.open('https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing', "pdf");
               },
               child: Text(
-                "CV/RESUME",
+                "CV",
                 style: GoogleFonts.montserrat(
                   color: _themeProv.lightTheme ? Colors.black : Colors.white,
                   fontWeight: FontWeight.w300,
@@ -345,7 +345,7 @@ class _MainPageState extends State<MainPage> {
                       borderRadius: BorderRadius.circular(5.0),
                       side: BorderSide(color: kPrimaryColor)),
                   onPressed: () {
-                    launchURL("https://drive.google.com/file/d/1FQVi8_gTUDTz1F7_nT3AXA7RFP5pJWWr/view?usp=sharing");
+                    launchURL('https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing');
                   },
                   child: ListTile(
                     leading: Icon(
@@ -353,7 +353,7 @@ class _MainPageState extends State<MainPage> {
                       color: Colors.green,
                     ),
                     title: Text(
-                      "CV/Resume",
+                      "CV",
                       style: GoogleFonts.montserrat(
                         fontWeight: FontWeight.w300,
                         color: theme.lightTheme ? Colors.black : Colors.white,
