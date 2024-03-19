@@ -1,29 +1,38 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: Dart
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ] # Assuming your main branch is named "main"
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
-    runs-on: windows-latest
-    
+    runs-on: ubuntu-latest
 
     steps:
-    
-      - uses: actions/checkout@v3
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
-        with:
-         channel: 'stable'
-      - run: flutter pub get
-      - run: flutter test
-      - run: flutter build web
+      - name: Checkout code
+        uses: actions/checkout@v2
 
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Build web
+        run: flutter build web
+
+      # Deployment steps
+      - name: Deploy to ShiftAlpha.github.io
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web
+          publish_branch: master # Assuming the main branch of ShiftAlpha.github.io is master
+          cname: dhiravrana.com # Optional: Add your custom domain if applicable
