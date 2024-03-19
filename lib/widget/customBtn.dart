@@ -5,11 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class OutlinedCustomBtn extends StatelessWidget {
-  final String btnText;
+  final String? btnText;
   final Function onPressed;
 
   const OutlinedCustomBtn(
-      {Key key, @required this.btnText, @required this.onPressed})
+      {Key? key, @required this.btnText, required this.onPressed})
       : super(key: key);
 
   @override
@@ -20,9 +20,9 @@ class OutlinedCustomBtn extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),
           side: BorderSide(color: kPrimaryColor)),
-      onPressed: onPressed,
+      onPressed: onPressed(),
       child: Text(
-        btnText,
+        btnText!,
         style: GoogleFonts.montserrat(
           fontWeight: FontWeight.w300,
           color: _themeProvider.lightTheme ? Colors.black : Colors.white,
@@ -33,17 +33,17 @@ class OutlinedCustomBtn extends StatelessWidget {
 }
 
 class CustomFilledBtn extends StatelessWidget {
-  final double height;
-  final double width;
-  final Widget child;
+  final double? height;
+  final double? width;
+  final Widget? child;
   final Function onPressed;
-  final Color btnColor;
+  final Color? btnColor;
   const CustomFilledBtn(
-      {Key key,
+      {Key? key,
       this.height,
       this.btnColor,
       this.width = 200.0,
-      this.onPressed,
+      required this.onPressed,
       this.child})
       : super(key: key);
 
@@ -54,7 +54,7 @@ class CustomFilledBtn extends StatelessWidget {
       width: width,
       child: MaterialButton(
         color: btnColor,
-        onPressed: onPressed,
+        onPressed: onPressed(),
         child: child,
       ),
     );

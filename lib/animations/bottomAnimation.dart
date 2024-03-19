@@ -14,9 +14,9 @@ class Animator extends StatefulWidget {
 
 class _AnimatorState extends State<Animator>
     with SingleTickerProviderStateMixin {
-  Timer timer;
-  AnimationController animationController;
-  Animation animation;
+  late Timer timer;
+  late AnimationController animationController;
+  late Animation animation;
 
   @override
   void initState() {
@@ -25,7 +25,11 @@ class _AnimatorState extends State<Animator>
         AnimationController(duration: Duration(seconds: 1), vsync: this);
     animation =
         CurvedAnimation(parent: animationController, curve: Curves.easeInOut);
-    timer = Timer(widget.time, animationController.forward);
+    timer = Timer(widget.time, () {
+      if (mounted) {
+        animationController.forward();
+      }
+    });
   }
 
   @override
@@ -40,11 +44,11 @@ class _AnimatorState extends State<Animator>
     return AnimatedBuilder(
       animation: animation,
       child: widget.child,
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return Opacity(
-          opacity: animation.value,
+          opacity: animation.value.toDouble(),
           child: Transform.translate(
-            offset: Offset(0.0, -50 + animation.value * 50),
+            offset: Offset(0.0, -50.0 + animation.value.toDouble() * 50.0),
             child: child,
           ),
         );
@@ -53,26 +57,26 @@ class _AnimatorState extends State<Animator>
   }
 }
 
-Timer timer;
-Duration duration = Duration();
+// late Timer timer;
+// Duration duration = Duration();
 
-wait() {
-  if (timer == null || !timer.isActive) {
-    timer = Timer(Duration(microseconds: 120), () {
-      duration = Duration();
-    });
-  }
-  duration += Duration(milliseconds: 300);
-  return duration;
-}
+// wait() {
+//   if (timer == null || !timer.isActive) {
+//     timer = Timer(Duration(microseconds: 120), () {
+//       duration = Duration();
+//     });
+//   }
+//   duration += Duration(milliseconds: 300);
+//   return duration;
+// }
 
 class WidgetAnimator extends StatelessWidget {
   final Widget child;
 
-  WidgetAnimator({this.child});
+  WidgetAnimator({required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return Animator(child, wait());
+    return Animator(child, Duration(milliseconds: 300));
   }
 }

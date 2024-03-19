@@ -87,7 +87,7 @@ final kServicesLinks = [
   "https://",
   "https://",
   "https://",
-  "https://github.com/shiftAlpha"
+  "https://github.com/shiftAlpha",
 ];
 
 // projects

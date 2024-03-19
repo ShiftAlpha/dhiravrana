@@ -17,10 +17,9 @@ class ContactMobileTab extends StatelessWidget {
       child: Column(
         children: [
           CustomSectionHeading(text: "\nGet in Touch"),
-          CustomSectionSubHeading(
-              text: ""),
+          CustomSectionSubHeading(text: ""),
           CarouselSlider.builder(
-            itemCount: 3,
+            itemCount: 1, // Set itemCount to match the number of items
             itemBuilder: (BuildContext context, int itemIndex, int i) =>
                 Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
@@ -33,13 +32,14 @@ class ContactMobileTab extends StatelessWidget {
               ),
             ),
             options: CarouselOptions(
-                height: height * 0.3,
-                autoPlay: true,
-                autoPlayInterval: Duration(seconds: 5),
-                enlargeCenterPage: true,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                enableInfiniteScroll: false),
+              height: height * 0.3,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 5),
+              enlargeCenterPage: true,
+              autoPlayCurve: Curves.fastOutSlowIn,
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              enableInfiniteScroll: false,
+            ),
           ),
         ],
       ),

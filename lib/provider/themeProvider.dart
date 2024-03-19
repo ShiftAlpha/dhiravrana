@@ -5,7 +5,7 @@ class ThemeProvider extends ChangeNotifier {
   ThemePreference darkThemePref = ThemePreference();
   ScrollController scrollController = ScrollController();
 
-  get scroll => scrollController;
+  int get scroll => scrollController.offset.toInt();
 
   set scroll(int i) {
     scrollController.animateTo(

@@ -72,10 +72,8 @@ class _MainPageState extends State<MainPage> {
       return Services();
     } else if (i == 3) {
       return Portfolio();
-    } else if(i == 4){
+    } else if (i == 4) {
       return Contact();
-    // } else if (i == 5) {
-    //   return Contact();
     } else if (i == 5) {
       return Footer();
     } else {
@@ -85,7 +83,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void initState() {
-    _scrollController = _themeProviders.scroll;
+    _scrollController = ScrollController(); // Initialize ScrollController
     _scrollController.addListener(() {
       if (_scrollController.position.userScrollDirection ==
           ScrollDirection.reverse) {
@@ -109,7 +107,7 @@ class _MainPageState extends State<MainPage> {
   @override
   void dispose() {
     _scrollController.dispose();
-    _scrollController.removeListener(() {});
+_scrollController.removeListener(() {});
     super.dispose();
   }
 
@@ -205,99 +203,89 @@ class _MainPageState extends State<MainPage> {
           );
   }
 
-  Widget _appBarTabDesktop(ThemeProvider _themeProv) {
-    return AppBar(
-      elevation: 0.0,
-      backgroundColor: _themeProv.lightTheme ? Colors.white : Colors.black,
-      title: MediaQuery.of(context).size.width < 780
-          ? EntranceFader(
-              duration: Duration(milliseconds: 250),
-              offset: Offset(0, -10),
-              delay: Duration(seconds: 3),
-              child: NavBarLogo(
-                height: 20.0,
-              ))
-          : EntranceFader(
-              offset: Offset(0, -10),
-              duration: Duration(milliseconds: 250),
-              delay: Duration(milliseconds: 100),
-              child: NavBarLogo(
-                height: MediaQuery.of(context).size.height * 0.035,
+  PreferredSizeWidget _appBarTabDesktop(ThemeProvider _themeProv) {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(kToolbarHeight),
+      child: AppBar(
+        elevation: 0.0,
+        backgroundColor: _themeProv.lightTheme ? Colors.white : Colors.black,
+        title: MediaQuery.of(context).size.width < 780
+            ? EntranceFader(
+                duration: Duration(milliseconds: 250),
+                offset: Offset(0, -10),
+                delay: Duration(seconds: 3),
+                child: NavBarLogo(
+                  height: 20.0,
+                ))
+            : EntranceFader(
+                offset: Offset(0, -10),
+                duration: Duration(milliseconds: 250),
+                delay: Duration(milliseconds: 100),
+                child: NavBarLogo(
+                  height: MediaQuery.of(context).size.height * 0.035,
+                ),
               ),
-            ),
-      actions: [
-        for (int i = 0; i < _sectionsName.length; i++)
-          _appBarActions(_sectionsName[i], i, _sectionsIcons[i], _themeProv),
-        EntranceFader(
-          offset: Offset(0, -10),
-          delay: Duration(milliseconds: 100),
-          duration: Duration(milliseconds: 250),
-          child: Container(
-            height: 60.0, 
-            width: 120.0,
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              hoverColor: kPrimaryColor.withAlpha(150),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0),
-                  side: BorderSide(color: kPrimaryColor)),
-              onPressed: () {
-                html.window.open('https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing', "pdf");
-              },
-              child: Text(
-                "CV",
-                style: GoogleFonts.montserrat(
-                  color: _themeProv.lightTheme ? Colors.black : Colors.white,
-                  fontWeight: FontWeight.w300,
+        actions: [
+          for (int i = 0; i < _sectionsName.length; i++)
+            _appBarActions(_sectionsName[i], i, _sectionsIcons[i], _themeProv),
+          EntranceFader(
+            offset: Offset(0, -10),
+            delay: Duration(milliseconds: 100),
+            duration: Duration(milliseconds: 250),
+            child: Container(
+              height: 60.0,
+              width: 120.0,
+              padding: const EdgeInsets.all(8.0),
+              child: MaterialButton(
+                hoverColor: kPrimaryColor.withAlpha(150),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    side: BorderSide(color: kPrimaryColor)),
+                onPressed: () {
+                  html.window.open(
+                      'https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing',
+                      "pdf");
+                },
+                child: Text(
+                  "CV",
+                  style: GoogleFonts.montserrat(
+                    color: _themeProv.lightTheme ? Colors.black : Colors.white,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
               ),
             ),
-            
           ),
-          
-        ),
-        // const SizedBox(width: 5.0),
-        EntranceFader(
-          offset: Offset(0, -10),
-          delay: Duration(milliseconds: 100),
-          duration: Duration(milliseconds: 250),
-          child: Container(
-            height: 60.0,
-            width: 120.0,
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              hoverColor: kPrimaryColor.withAlpha(150),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0),
-                  side: BorderSide(color: kPrimaryColor)),
-              onPressed: () {
-                html.window.open('https://drive.google.com/file/d/1SaNng1Tlc4gFXt817Fo6uaurAXHfEVf2/view?usp=sharing', "pdf");
-                
-              },
-              child: Text(
-                "Cover Letter",
-                style: GoogleFonts.montserrat(
-                  color: _themeProv.lightTheme ? Colors.black : Colors.white,
-                  fontWeight: FontWeight.w300,
+          EntranceFader(
+            offset: Offset(0, -10),
+            delay: Duration(milliseconds: 100),
+            duration: Duration(milliseconds: 250),
+            child: Container(
+              height: 60.0,
+              width: 120.0,
+              padding: const EdgeInsets.all(8.0),
+              child: MaterialButton(
+                hoverColor: kPrimaryColor.withAlpha(150),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    side: BorderSide(color: kPrimaryColor)),
+                onPressed: () {
+                  html.window.open(
+                      'https://drive.google.com/file/d/1SaNng1Tlc4gFXt817Fo6uaurAXHfEVf2/view?usp=sharing',
+                      "pdf");
+                },
+                child: Text(
+                  "Cover Letter",
+                  style: GoogleFonts.montserrat(
+                    color: _themeProv.lightTheme ? Colors.black : Colors.white,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
               ),
             ),
-            
           ),
-          
-        ),
-        // SizedBox(
-        //   height: 30.0,
-        //   child: Switch(
-        //     inactiveTrackColor: Colors.grey,
-        //     value: !_themeProv.lightTheme,
-        //     onChanged: (value) {
-        //       _themeProv.lightTheme = !value;
-        //     },
-        //     activeColor: kPrimaryColor,
-        //   ),
-        // ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -316,21 +304,9 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
               ListTile(
-                // leading: Icon(
-                //   Icons.lightbulb,
-                //   color: kPrimaryColor,
-                // ),
                 title: Text("",
                     style: TextStyle(
                         color: theme.lightTheme ? Colors.black : Colors.white)),
-                // trailing: Switch(
-                //   inactiveTrackColor: Colors.grey,
-                //   value: !theme.lightTheme,
-                //   onChanged: (value) {
-                //     theme.lightTheme = !value;
-                //   },
-                //   activeColor: kPrimaryColor,
-                // ),
               ),
               for (int i = 0; i < _sectionsName.length; i++)
                 _appBarActions(_sectionsName[i], i, _sectionsIcons[i], theme),
@@ -345,7 +321,8 @@ class _MainPageState extends State<MainPage> {
                       borderRadius: BorderRadius.circular(5.0),
                       side: BorderSide(color: kPrimaryColor)),
                   onPressed: () {
-                    launchURL('https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing');
+                    launchURL(
+                        'https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing');
                   },
                   child: ListTile(
                     leading: Icon(
@@ -399,15 +376,15 @@ class _MainPageState extends State<MainPage> {
 }
 
 class SectionsBody extends StatelessWidget {
-  final ScrollController scrollController;
-  final int sectionsLength;
-  final Widget Function(int) sectionWidget;
+  final ScrollController? scrollController;
+  final int? sectionsLength;
+  final Widget? Function(int) sectionWidget;
 
   const SectionsBody({
-    Key key,
+    Key? key,
     this.scrollController,
     this.sectionsLength,
-    this.sectionWidget,
+    required this.sectionWidget,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -415,23 +392,10 @@ class SectionsBody extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
-        // physics: !kIsWeb ? ScrollPhysics() : NeverScrollableScrollPhysics(),
-        controller: scrollController,
+        controller: scrollController, // Use the provided scrollController here
         itemCount: sectionsLength,
         itemBuilder: (context, index) => sectionWidget(index),
       ),
     );
   }
 }
-
-// onPointerSignal: (ps) {
-//           if (ps is PointerScrollEvent) {
-//             final newOffset = scrollController.offset + ps.scrollDelta.dy;
-//             if (ps.scrollDelta.dy.isNegative) {
-//               scrollController.jumpTo(math.max(0, newOffset));
-//             } else {
-//               scrollController.jumpTo(math.min(
-//                   scrollController.position.maxScrollExtent, newOffset));
-//             }
-//           }
-//         },

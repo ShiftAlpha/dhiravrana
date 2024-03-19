@@ -11,7 +11,7 @@ class ThemeStyles {
             primaryColorLight: kPrimaryColor,
             brightness: Brightness.light,
             primaryColor: kPrimaryColor,
-            accentColor: Colors.black,
+            hintColor: Colors.black,
             highlightColor: Colors.black,
             canvasColor: Colors.white,
           )
@@ -21,7 +21,7 @@ class ThemeStyles {
             primarySwatch: Colors.green,
             primaryColorDark: kPrimaryColor,
             primaryColor: kPrimaryColor,
-            accentColor: kPrimaryColor,
+            hintColor: kPrimaryColor,
             highlightColor: kPrimaryColor,
             canvasColor: Colors.white,
           );

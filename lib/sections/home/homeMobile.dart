@@ -1,6 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:dhiravrana/constants.dart';
 import 'package:dhiravrana/provider/themeProvider.dart';
 import 'package:dhiravrana/widget/socialMediaIcon.dart';
