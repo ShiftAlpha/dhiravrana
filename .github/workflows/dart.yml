@@ -2,9 +2,9 @@ name: Dart
 
 on:
   push:
-    branches: [ "main" ] # Assuming your main branch is named "main"
+    branches: [ "master" ] # Trigger the workflow on push events to the "master" branch
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ] # Trigger the workflow on pull requests to the "master" branch
 
 jobs:
   build:
@@ -34,5 +34,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build/web
-          publish_branch: master # Assuming the main branch of ShiftAlpha.github.io is master
+          publish_branch: main # Deploy to the "main" branch of ShiftAlpha.github.io
           cname: dhiravrana.com # Optional: Add your custom domain if applicable
