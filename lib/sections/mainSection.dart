@@ -107,7 +107,7 @@ class _MainPageState extends State<MainPage> {
   @override
   void dispose() {
     _scrollController.dispose();
-_scrollController.removeListener(() {});
+    _scrollController.removeListener(() {});
     super.dispose();
   }
 
@@ -134,24 +134,26 @@ _scrollController.removeListener(() {});
       drawer: MediaQuery.of(context).size.width < 760
           ? _appBarMobile(_themeProv)
           : null,
-      body: Stack(
-        children: [
-          SectionsBody(
-            scrollController: _scrollController,
-            sectionsLength: _sectionsIcons.length,
-            sectionWidget: sectionWidget,
-          ),
-          _isScrollingDown
-              ? Positioned(
-                  bottom: 90,
-                  right: 0,
-                  child: EntranceFader(
-                      offset: Offset(0, 20),
-                      child: ArrowOnTop(
-                        onPressed: () => _scroll(0),
-                      )))
-              : Container()
-        ],
+      body: SingleChildScrollView( // Wrap with SingleChildScrollView
+        child: Stack(
+          children: [
+            SectionsBody(
+              scrollController: _scrollController,
+              sectionsLength: _sectionsIcons.length,
+              sectionWidget: sectionWidget,
+            ),
+            _isScrollingDown
+                ? Positioned(
+                    bottom: 90,
+                    right: 0,
+                    child: EntranceFader(
+                        offset: Offset(0, 20),
+                        child: ArrowOnTop(
+                          onPressed: () => _scroll(0),
+                        )))
+                : Container()
+          ],
+        ),
       ),
     );
   }
