@@ -21,6 +21,7 @@ class AboutMobile extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
+
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: width * 0.05,

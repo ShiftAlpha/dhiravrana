@@ -18,6 +18,9 @@ class _HomeMobileState extends State<HomeMobile> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
+    String darkThemeImage = 'assets/dp.jpg';
+    String lightThemeImage = 'assets/dplight2.jpg';
+
     return Container(
       height: height,
       width: width,
@@ -29,7 +32,9 @@ class _HomeMobileState extends State<HomeMobile> {
             right: 0.01,
             child: Opacity(
               opacity: 0.9,
-              child: Image.asset('assets/dp.jpg', height: height * 0.75),
+              child: Image.asset(
+                  _themeProvider.lightTheme ? lightThemeImage : darkThemeImage,
+                  height: height * 0.75),
             ),
           ),
           Container(

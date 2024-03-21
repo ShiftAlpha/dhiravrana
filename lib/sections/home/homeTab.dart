@@ -13,6 +13,9 @@ class HomeTab extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
+    String darkThemeImage = 'assets/dp.jpg';
+    String lightThemeImage = 'assets/dplight2.jpg';
+
     return Container(
       height: height,
       width: width,
@@ -23,7 +26,9 @@ class HomeTab extends StatelessWidget {
             right: width < 740 ? -width * 0.2 : -width * 0.1,
             child: Opacity(
               opacity: 0.9,
-              child: Image.asset('assets/dp.jpg', height: height * 0.75),
+              child: Image.asset(
+                  _themeProvider.lightTheme ? lightThemeImage : darkThemeImage,
+                  height: height * 0.75),
             ),
           ),
           Container(
@@ -120,4 +125,3 @@ class HomeTab extends StatelessWidget {
     );
   }
 }
-

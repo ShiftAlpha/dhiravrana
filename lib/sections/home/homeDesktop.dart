@@ -16,6 +16,9 @@ class HomeDesktop extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
+    String darkThemeImage = 'assets/dp.jpg';
+    String lightThemeImage = 'assets/dplight2.jpg';
+
     return Container(
       height: height - 50,
       width: width,
@@ -31,7 +34,7 @@ class HomeDesktop extends StatelessWidget {
                 delay: Duration(seconds: 1),
                 duration: Duration(milliseconds: 800),
                 child: Image.asset(
-                  'assets/dp.jpg',
+                  _themeProvider.lightTheme ? lightThemeImage : darkThemeImage,
                   height: width < 1200 ? height * 0.8 : height * 0.85,
                 ),
               ),
@@ -112,8 +115,8 @@ class HomeDesktop extends StatelessWidget {
                           ),
                           text: [
                             "Full Stack Developer",
-                          "Web3/Hashgraph",
-                          "DevOps"
+                            "Web3/Hashgraph",
+                            "DevOps"
                           ]),
                     ],
                   ),

@@ -76,7 +76,7 @@ class _ServiceDesktopState extends State<ServiceDesktop> {
                           cardHeight:
                               width < 1200 ? height * 0.37 : height * 0.35,
                           serviceIcon: _themeProvider.lightTheme && index == 4
-                              ? "assets/services/open_b.png"
+                              ? "assets/services/devOps.png"
                               : kServicesIcons[index],
                           serviceTitle: kServicesTitles[index],
                           serviceDescription: kServicesDescriptions[index],

@@ -134,7 +134,7 @@ class _MainPageState extends State<MainPage> {
       drawer: MediaQuery.of(context).size.width < 760
           ? _appBarMobile(_themeProv)
           : null,
-      body: SingleChildScrollView( // Wrap with SingleChildScrollView
+      body: SingleChildScrollView(
         child: Stack(
           children: [
             SectionsBody(
@@ -286,6 +286,17 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
           ),
+          SizedBox(
+            height: 30.0,
+            child: Switch(
+              inactiveTrackColor: Colors.grey,
+              value: !_themeProv.lightTheme,
+              onChanged: (value) {
+                _themeProv.lightTheme = !value;
+              },
+              activeColor: kPrimaryColor,
+            ),
+          ),
         ],
       ),
     );
@@ -302,13 +313,25 @@ class _MainPageState extends State<MainPage> {
             children: [
               Center(
                 child: NavBarLogo(
-                  height: 28,
+                  height: 24,
                 ),
               ),
               ListTile(
+                leading: Icon(
+                  Icons.lightbulb,
+                  color: kPrimaryColor,
+                ),
                 title: Text("",
                     style: TextStyle(
                         color: theme.lightTheme ? Colors.black : Colors.white)),
+                trailing: Switch(
+                  inactiveTrackColor: Colors.grey,
+                  value: !theme.lightTheme,
+                  onChanged: (value) {
+                    theme.lightTheme = !value;
+                  },
+                  activeColor: kPrimaryColor,
+                ),
               ),
               for (int i = 0; i < _sectionsName.length; i++)
                 _appBarActions(_sectionsName[i], i, _sectionsIcons[i], theme),
@@ -349,7 +372,8 @@ class _MainPageState extends State<MainPage> {
                       borderRadius: BorderRadius.circular(5.0),
                       side: BorderSide(color: kPrimaryColor)),
                   onPressed: () {
-                    launchURL("https://drive.google.com/file/d/1SaNng1Tlc4gFXt817Fo6uaurAXHfEVf2/view?usp=sharing");
+                    launchURL(
+                        "https://drive.google.com/file/d/1SaNng1Tlc4gFXt817Fo6uaurAXHfEVf2/view?usp=sharing");
                   },
                   child: ListTile(
                     leading: Icon(
@@ -388,13 +412,14 @@ class SectionsBody extends StatelessWidget {
     this.sectionsLength,
     required this.sectionWidget,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
-        controller: scrollController, // Use the provided scrollController here
+        controller: scrollController,
         itemCount: sectionsLength,
         itemBuilder: (context, index) => sectionWidget(index),
       ),
