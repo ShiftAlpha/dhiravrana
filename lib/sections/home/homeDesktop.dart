@@ -46,30 +46,6 @@ class HomeDesktop extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  // children: [
-                  //   AdaptiveText(
-                  //     "Greetings! ",
-                  //     style: GoogleFonts.montserrat(
-                  //       fontSize: height * 0.03,
-                  //       fontWeight: FontWeight.w300,
-                  //       color: _themeProvider.lightTheme
-                  //           ? Colors.black
-                  //           : Colors.white,
-                  //     ),
-                  //   ),
-                  //   EntranceFader(
-                  //     offset: Offset(0, 0),
-                  //     delay: Duration(seconds: 2),
-                  //     duration: Duration(milliseconds: 800),
-                  //     child: Image.asset(
-                  //       "assets/hi.gif",
-                  //       height: height * 0.05,
-                  //     ),
-                  //   ),
-                  // ],
-                ),
                 SizedBox(
                   height: height * 0.04,
                 ),
