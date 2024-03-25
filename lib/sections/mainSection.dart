@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:dhiravrana/provider/themeProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:universal_html/html.dart' as html;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:dhiravrana/animations/entranceFader.dart';
 import 'package:dhiravrana/constants.dart';
@@ -17,7 +14,6 @@ import 'package:dhiravrana/sections/services/services.dart';
 import 'package:dhiravrana/widget/arrowOnTop.dart';
 import 'package:dhiravrana/widget/footer.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:dhiravrana/widget/timeLine.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -25,7 +21,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  ThemeProvider _themeProviders = ThemeProvider();
   bool isPressed = false;
   bool _isScrollingDown = false;
   ScrollController _scrollController = ScrollController();

@@ -56,20 +56,6 @@ class _AnimatorState extends State<Animator>
     );
   }
 }
-
-// late Timer timer;
-// Duration duration = Duration();
-
-// wait() {
-//   if (timer == null || !timer.isActive) {
-//     timer = Timer(Duration(microseconds: 120), () {
-//       duration = Duration();
-//     });
-//   }
-//   duration += Duration(milliseconds: 300);
-//   return duration;
-// }
-
 class WidgetAnimator extends StatelessWidget {
   final Widget child;
 

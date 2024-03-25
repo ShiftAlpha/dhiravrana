@@ -4,7 +4,6 @@ import 'package:dhiravrana/provider/themeProvider.dart';
 import 'package:dhiravrana/widget/adaptiveText.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatefulWidget {
   final String? projectIcon;
@@ -42,7 +41,6 @@ class _ProjectCardState extends State<ProjectCard> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return InkWell(
-      // onTap: () => launch(widget.projectLink?? ""),
       onHover: (isHovering) {
         if (isHovering) {
           setState(() {
@@ -61,17 +59,6 @@ class _ProjectCardState extends State<ProjectCard> {
         decoration: BoxDecoration(
           color: _themeProvider.lightTheme ? Colors.white : Colors.grey[900],
           borderRadius: BorderRadius.all(Radius.circular(20)),
-          // border: Border(
-          //   bottom: isHover
-          //       ? BorderSide(
-          //           color: kPrimaryColor,
-          //           width: 3.0,
-          //         )
-          //       : BorderSide(
-          //           color:
-          //               _themeProvider.lightTheme ? Colors.white : Colors.grey[900],
-          //         ),
-          // ),
           boxShadow: isHover
               ? [
                   BoxShadow(
@@ -98,7 +85,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     ? (width > 1135 || width < 950)
                         ? Image.asset(
                             widget.projectIcon?? "",
-                            height: height * 0.05,
+                            height: height * 0.125,
                           )
                         : Row(
                             mainAxisSize: MainAxisSize.min,
@@ -129,7 +116,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     ? Icon(
                         widget.projectIconData,
                         color: kPrimaryColor,
-                        size: height * 0.1,
+                        size: height * 0.125,
                       )
                     : Container(),
                 (width > 1135 || width < 950)

@@ -24,7 +24,7 @@ const kSocialLinks = [
 
 // URL Launcher
 void launchURL(String _url) async =>
-    await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
+    await canLaunchUrl(_url as Uri) ? await launchUrl(_url as Uri) : throw 'Could not launch $_url';
 
 // Community
 final kCommunityLogo = [
@@ -102,13 +102,13 @@ final kProjectsIcons = [
   "assets/services/amazon.png",
   "assets/projects/flutter.png",
   "assets/services/blockchain.png",
-  "assets/projects/",
-  "assets/projects/",
-  "assets/projects/",
+  "assets/projects/MSNET.png",
+  "assets/projects/download.png",
+  "assets/projects/MVCSQLVS.png",
   "assets/services/androidApp.png",
-  "assets/projects/",
-  "assets/projects/java.png",
-  "assets/services/open.png",
+  "assets/projects/HTMLCSSJS.png",
+  "assets/projects/JAVA.png",
+  "assets/projects/SQL.png",
 ];
 
 final kProjectsTitles = [
@@ -126,9 +126,9 @@ final kProjectsTitles = [
 
 final kProjectsDescriptions = [
   "Amazon Web Services Training",
-  "Flutter apps",
-  "Blockchain 2.0 & 3.0 Hashgraph projects",
-  ".NET ; .CORE; Visual Studio MVC ;c# ",
+  "Flutter",
+  "Blockchain 2.0 & 3.0 Hashgraph",
+  "ASP.NET ; ASP.CORE; Visual Studio MVC ;c# ",
   "(MEAN) C# web app showcasing security protocols ",
   "MVC; Forms; SQL Server Studio; ERD's",
   "Android projects utilizing android studio & firebase",
@@ -153,14 +153,15 @@ final kProjectsLinks = [
 // Contact
 final kContactIcons = [
   Icons.meeting_room_outlined,
+  Icons.email_outlined
 ];
 
 final kContactTitles = [
-  "Location",
+  "Calendly","Email"
 ];
 
-final kContactDetails = ["Calendly Meeting"];
+final kContactDetails = ["Calendly Meeting","Email"];
 
 final kContactLinks = [
-  "https://calendly.com/dhiravrana",
+  "https://calendly.com/dhiravrana",""
 ];

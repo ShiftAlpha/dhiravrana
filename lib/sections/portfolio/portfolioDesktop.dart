@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:dhiravrana/animations/bottomAnimation.dart';
 import 'package:dhiravrana/widget/customBtn.dart';
 import 'package:dhiravrana/widget/customTextHeading.dart';
 import 'package:dhiravrana/widget/projectCard.dart';
 import 'package:dhiravrana/constants.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import the url_launcher package
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart'; // Import the url_launcher package
 
 class PortfolioDesktop extends StatelessWidget {
   @override
@@ -15,8 +15,8 @@ class PortfolioDesktop extends StatelessWidget {
     void launchURL() async {
       const url =
           'https://github.com/shiftAlpha'; // Replace with your desired URL
-      if (await canLaunch(url)) {
-        await launch(url);
+      if (await canLaunchUrlString(url)) {
+        await launchUrl(url as Uri);
       } else {
         throw 'Could not launch $url';
       }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dhiravrana/animations/bottomAnimation.dart';
 import 'package:dhiravrana/constants.dart';
-import 'package:dhiravrana/widget/customBtn.dart';
 import 'package:dhiravrana/widget/customTextHeading.dart';
 import 'package:dhiravrana/widget/projectCard.dart';
 
@@ -38,12 +37,6 @@ class ContactDesktop extends StatelessWidget {
               ),
             ),
           ),
-          // const SizedBox(
-          //   height: 25.0,
-          // ),
-          // OutlinedCustomBtn(
-          //     btnText: "Let's Work Together",
-          //     onPressed: () => Navigator.pushNamed(context, '/workTogether')),
         ],
       ),
     );

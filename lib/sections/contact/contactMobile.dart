@@ -1,16 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:dhiravrana/constants.dart';
-import 'package:dhiravrana/provider/themeProvider.dart';
 import 'package:dhiravrana/widget/customTextHeading.dart';
 import 'package:dhiravrana/widget/projectCard.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
 class ContactMobileTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _themeProvider = Provider.of<ThemeProvider>(context);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Container(
@@ -19,7 +14,7 @@ class ContactMobileTab extends StatelessWidget {
           CustomSectionHeading(text: "\nGet in Touch"),
           CustomSectionSubHeading(text: ""),
           CarouselSlider.builder(
-            itemCount: 1, // Set itemCount to match the number of items
+            itemCount: 2, // Set itemCount to match the number of items
             itemBuilder: (BuildContext context, int itemIndex, int i) =>
                 Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0),

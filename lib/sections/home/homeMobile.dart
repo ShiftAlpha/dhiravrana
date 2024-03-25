@@ -44,21 +44,6 @@ class _HomeMobileState extends State<HomeMobile> {
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  // children: [
-                  //   Text(
-                  //     "Hello World! ",
-                  //     style: GoogleFonts.montserrat(
-                  //         fontSize: height * 0.025,
-                  //         color: _themeProvider.lightTheme
-                  //             ? Colors.black
-                  //             : Colors.white,
-                  //         fontWeight: FontWeight.w200),
-                  //   ),
-                  //   Image.asset(
-                  //     "assets/hi.gif",
-                  //     height: height * 0.03,
-                  //   ),
-                  // ],
                 ),
                 SizedBox(
                   height: height * 0.01,
@@ -73,15 +58,6 @@ class _HomeMobileState extends State<HomeMobile> {
                       fontWeight: FontWeight.w100,
                       letterSpacing: 1.1),
                 ),
-                // Text(
-                //   "Rana",
-                //   style: GoogleFonts.montserrat(
-                //       color: _themeProvider.lightTheme
-                //           ? Colors.black
-                //           : Colors.white,
-                //       fontSize: height * 0.055,
-                //       fontWeight: FontWeight.w500),
-                // ),
                 SizedBox(
                   height: height * 0.01,
                 ),

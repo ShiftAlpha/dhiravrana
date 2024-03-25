@@ -6,6 +6,7 @@ import 'package:dhiravrana/widget/customTextHeading.dart';
 import 'package:dhiravrana/widget/projectCard.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
 class PortfolioMobileTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,8 +16,8 @@ class PortfolioMobileTab extends StatelessWidget {
     void launchURL() async {
       const url =
           'https://github.com/shiftAlpha'; // Replace with your desired URL
-      if (await canLaunch(url)) {
-        await launch(url);
+      if (await canLaunchUrl(url as Uri)) {
+        await launchUrl(url as Uri);
       } else {
         throw 'Could not launch $url';
       }

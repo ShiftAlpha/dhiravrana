@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:dhiravrana/constants.dart';
 import 'package:dhiravrana/provider/themeProvider.dart';
 import 'package:dhiravrana/provider/themeStyles.dart';
 import 'package:dhiravrana/sections/getInTouch/getInTouch.dart';

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:dhiravrana/constants.dart';
 import 'package:dhiravrana/provider/themeProvider.dart';
 import 'package:dhiravrana/widget/adaptiveText.dart';
-import 'package:dhiravrana/widget/customBtn.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -122,56 +120,8 @@ class _ServiceDetailsMobileState extends State<ServiceDetailsMobile> {
                       _themeProvider.lightTheme ? Colors.black : Colors.white,
                 ),
               ),
-              // const SizedBox(height: 25.0),
-              // Align(
-              //   alignment: Alignment.center,
-              //   child: AdaptiveText(
-              //     "Get in Touch!",
-              //     style: GoogleFonts.montserrat(
-              //         color: _themeProvider.lightTheme
-              //             ? Colors.black
-              //             : Colors.white),
-              //   ),
-              // ),
               const SizedBox(height: 20.0),
-              // Align(
-              //   alignment: Alignment.center,
-              //   child: CustomFilledBtn(
-              //     height: 40.0,
-              //     onPressed: () => launchURL("https://wa.me/?text=Hi Dhirav!"),
-              //     btnColor: Color(0xff34CB62),
-              //     child: Row(
-              //       mainAxisSize: MainAxisSize.min,
-              //       children: [
-              //         Icon(FontAwesomeIcons.whatsapp),
-              //         const SizedBox(width: 8.0),
-              //         Text(""),
-              //       ],
-              //     ),
-              //   ),
-              // ),
               const SizedBox(height: 15.0),
-              // Align(
-              //   alignment: Alignment.center,
-              //   child: CustomFilledBtn(
-              //     height: 40.0,
-              //     onPressed: () => launchURL(
-              //         ""),
-              //     btnColor: Color(0xff13A800),
-              //     child: Row(
-              //       mainAxisSize: MainAxisSize.min,
-              //       children: [
-              //         Image.network(
-              //           "",
-              //           height: 35.0,
-              //           color: Colors.white,
-              //         ),
-              //         const SizedBox(width: 8.0),
-              //         Text("Upwork"),
-              //       ],
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),

@@ -5,7 +5,6 @@ import 'package:dhiravrana/constants.dart';
 import 'package:dhiravrana/provider/themeProvider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ServiceCard extends StatefulWidget {
   final String serviceIcon;
@@ -37,7 +36,6 @@ class _ServiceCardState extends State<ServiceCard> {
   Widget build(BuildContext context) {
     final _themeProvider = Provider.of<ThemeProvider>(context);
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {},
       onHover: (isHovering) {
@@ -63,14 +61,6 @@ class _ServiceCardState extends State<ServiceCard> {
             decoration: BoxDecoration(
               color:
                   _themeProvider.lightTheme ? Colors.white : Colors.grey[900],
-              // border: Border(
-              //   bottom: isHover
-              //       ? BorderSide(
-              //           color: kPrimaryColor,
-              //           width: 3.0,
-              //         )
-              //       : BorderSide(),
-              // ),
               borderRadius: BorderRadius.all(Radius.circular(20)),
               boxShadow: isHover
                   ? [
@@ -96,16 +86,6 @@ class _ServiceCardState extends State<ServiceCard> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             color: _themeProvider.lightTheme ? Colors.white : Colors.grey[900],
-            // border: Border(
-              
-            //   bottom: isHover
-            //       ? BorderSide(
-            //           color: kPrimaryColor,
-            //           width: 3.0,
-            //         )
-            //       : BorderSide(),
-            // ),
-            
             boxShadow: isHover
                 ? [
                     BoxShadow(
@@ -143,23 +123,6 @@ class _ServiceCardState extends State<ServiceCard> {
                       _themeProvider.lightTheme ? Colors.black : Colors.white,
                 ),
               ),
-              // SizedBox(
-              //   height: height * 0.01,
-              // ),
-              // Expanded(
-              //   child: Text(
-              //     widget.serviceDescription,
-              //     textAlign: TextAlign.center,
-              //     style: GoogleFonts.montserrat(
-              //         color: _themeProvider.lightTheme
-              //             ? Colors.black
-              //             : Colors.white,
-              //         fontSize: height * 0.015,
-              //         letterSpacing: 2.0,
-              //         fontWeight: FontWeight.w200,
-              //         height: width < 900 ? 1.5 : 1.8),
-              //   ),
-              // )
             ],
           ),
         ),

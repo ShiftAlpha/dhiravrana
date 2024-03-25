@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:dhiravrana/animations/bottomAnimation.dart';
 import 'package:dhiravrana/constants.dart';
@@ -10,7 +9,7 @@ import 'package:dhiravrana/widget/socialMediaIcon.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:mailto/mailto.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class GetInTouchDesktop extends StatefulWidget {
   @override
@@ -70,7 +69,7 @@ class _GetInTouchDesktopState extends State<GetInTouchDesktop> {
 
     // final mailUrl = "mailto:$mailToLink";
     try {
-      await launch("$mailToLink");
+      await launchUrlString("$mailToLink");
     } catch (e) {
       print(e);
     }
@@ -110,21 +109,6 @@ class _GetInTouchDesktopState extends State<GetInTouchDesktop> {
                         color: kPrimaryColor,
                         size: 40.0,
                       ),
-                      TyperAnimatedTextKit(
-                          isRepeatingAnimation: true,
-                          speed: Duration(milliseconds: 50),
-                          textStyle: GoogleFonts.montserrat(
-                            fontSize: 32.0,
-                            fontWeight: FontWeight.w200,
-                            color: _themeProvider.lightTheme
-                                ? Colors.black
-                                : Colors.white,
-                          ),
-                          text: [
-                            "",
-                            "",
-                            ""
-                          ]),
                     ],
                   ),
                   const SizedBox(height: 30.0),

@@ -39,23 +39,6 @@ class HomeTab extends StatelessWidget {
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  // children: [
-                  //   Text(
-                  //     "Greetings! ",
-                  //     style: GoogleFonts.montserrat(
-                  //       fontSize: height * 0.03,
-                  //       fontWeight: FontWeight.w300,
-                  //       color: _themeProvider.lightTheme
-                  //           ? Colors.black
-                  //           : Colors.white,
-                  //     ),
-                  //   ),
-                  //   Image.asset(
-                  //     "assets/hi.gif",
-                  //     height: height * 0.05,
-                  //     color: Colors.white,
-                  //   ),
-                  // ],
                 ),
                 SizedBox(
                   height: height * 0.04,
@@ -70,15 +53,6 @@ class HomeTab extends StatelessWidget {
                           : Colors.white,
                       letterSpacing: 1.5),
                 ),
-                // Text(
-                //   "Rana",
-                //   style: GoogleFonts.montserrat(
-                //     fontSize: height * 0.07,
-                //     fontWeight: FontWeight.w500,
-                //     color:
-                //         _themeProvider.lightTheme ? Colors.black : Colors.white,
-                //   ),
-                // ),
                 Row(
                   children: [
                     Icon(

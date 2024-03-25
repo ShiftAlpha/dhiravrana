@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:dhiravrana/constants.dart';
 import 'package:dhiravrana/provider/themeProvider.dart';
 import 'package:dhiravrana/widget/adaptiveText.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,13 +26,6 @@ class Footer extends StatelessWidget {
                 color: _themeProvider.lightTheme ? Colors.black : Colors.white,
               ),
             ),
-            // InkWell(
-            //   onTap: () => launchURL("https://github.com/shiftAlpha"),
-            //   child: Text(
-            //     "Flutter",
-            //     style: TextStyle(color: Colors.blue),
-            //   ),
-            // )
           ],
         ),
       ),
