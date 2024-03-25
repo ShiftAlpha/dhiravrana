@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:dhiravrana/constants.dart';
-import 'package:dhiravrana/provider/themeProvider.dart';
 import 'package:dhiravrana/widget/adaptiveText.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:dhiravrana/widget/PopupFormWidget.dart'; // Import your PopupFormWidget
+import 'package:url_launcher/url_launcher.dart';
+
+import '../provider/themeProvider.dart'; // Import for launching URLs
 
 class ProjectCard extends StatefulWidget {
   final String? projectIcon;
@@ -16,18 +19,19 @@ class ProjectCard extends StatefulWidget {
   final String? backImage;
   final Widget? bottomWidget;
 
-  const ProjectCard(
-      {Key? key,
-      this.backImage,
-      this.bottomWidget,
-      this.projectIcon,
-      this.projectTitle,
-      this.projectDescription,
-      this.projectLink,
-      this.projectIconData,
-      this.cardWidth,
-      this.cardHeight})
-      : super(key: key);
+  const ProjectCard({
+    Key? key,
+    this.backImage,
+    this.bottomWidget,
+    this.projectIcon,
+    this.projectTitle,
+    this.projectDescription,
+    this.projectLink,
+    this.projectIconData,
+    this.cardWidth,
+    this.cardHeight,
+  }) : super(key: key);
+
   @override
   _ProjectCardState createState() => _ProjectCardState();
 }
@@ -50,6 +54,22 @@ class _ProjectCardState extends State<ProjectCard> {
           setState(() {
             isHover = false;
           });
+        }
+      },
+      onTap: () {
+        if (widget.projectTitle == "Email") {
+          showDialog(
+            context: context,
+            builder: (context) => PopupFormWidget(
+              onSubmit: (String recipient, String subject, String body) {
+                String emailUrl =
+                    'mailto:$recipient?subject=$subject&body=$body';
+                launch(emailUrl);
+              },
+            ),
+          );
+        } else if (widget.projectTitle == "Calendly") {
+          // Handle Calendly link if needed
         }
       },
       child: Container(
@@ -84,21 +104,21 @@ class _ProjectCardState extends State<ProjectCard> {
                 widget.projectIcon != null
                     ? (width > 1135 || width < 950)
                         ? Image.asset(
-                            widget.projectIcon?? "",
+                            widget.projectIcon ?? "",
                             height: height * 0.125,
                           )
                         : Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Image.asset(
-                                widget.projectIcon?? "",
+                                widget.projectIcon ?? "",
                                 height: height * 0.03,
                               ),
                               SizedBox(
                                 width: width * 0.01,
                               ),
                               Text(
-                                widget.projectTitle?? "",
+                                widget.projectTitle ?? "",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.montserrat(
                                   fontSize: height * 0.015,
@@ -126,7 +146,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     : SizedBox(),
                 (width > 1135 || width < 950)
                     ? AdaptiveText(
-                        widget.projectTitle?? "",
+                        widget.projectTitle ?? "",
                         textAlign: TextAlign.center,
                         style: GoogleFonts.montserrat(
                           fontSize: height * 0.02,
@@ -142,17 +162,19 @@ class _ProjectCardState extends State<ProjectCard> {
                   height: height * 0.01,
                 ),
                 AdaptiveText(
-                  widget.projectDescription?? "",
+                  widget.projectDescription ?? "",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.montserrat(
-                      fontSize: height * 0.015,
-                      letterSpacing: 2.0,
-                      color: _themeProvider.lightTheme
-                          ? Colors.black
-                          : Colors.white,
-                      fontWeight: FontWeight.w300,
-                      height: width >= 600 ? 2.0 : 1.2),
+                    fontSize: height * 0.015,
+                    letterSpacing: 2.0,
+                    color: _themeProvider.lightTheme
+                        ? Colors.black
+                        : Colors.white,
+                    fontWeight: FontWeight.w300,
+                    height: width >= 600 ? 2.0 : 1.2,
+                  ),
                 ),
+
                 SizedBox(
                   height: height * 0.01,
                 ),
@@ -165,7 +187,7 @@ class _ProjectCardState extends State<ProjectCard> {
               child: FittedBox(
                 fit: BoxFit.fill,
                 child: widget.backImage != null
-                    ? Image.asset(widget.backImage?? "")
+                    ? Image.asset(widget.backImage ?? "")
                     : Container(),
               ),
             ),
