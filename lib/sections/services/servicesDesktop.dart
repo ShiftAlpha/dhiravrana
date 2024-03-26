@@ -71,9 +71,11 @@ class _ServiceDesktopState extends State<ServiceDesktop> {
                           cardWidth: width < 1200 ? width * 0.25 : width * 0.22,
                           cardHeight:
                               width < 1200 ? height * 0.37 : height * 0.35,
-                          serviceIcon: _themeProvider.lightTheme && index == 4
-                              ? "assets/services/devOps.png"
-                              : kServicesIcons[index],
+                          serviceIcon:
+                               _themeProvider.lightTheme && index == 3
+                                  ? "assets/services/devOps.png"
+                                  :
+                              kServicesIcons[index],
                           serviceTitle: kServicesTitles[index],
                           serviceDescription: kServicesDescriptions[index],
                           serviceLink: kServicesLinks[index],
@@ -120,7 +122,7 @@ class ServiceCardBackWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         AdaptiveText(
-          serviceDesc??"",
+          serviceDesc ?? "",
           style: GoogleFonts.montserrat(
             color: _themeProvider.lightTheme ? Colors.black : Colors.white,
             fontSize: height * 0.015,

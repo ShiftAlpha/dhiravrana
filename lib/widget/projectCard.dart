@@ -64,12 +64,12 @@ class _ProjectCardState extends State<ProjectCard> {
               onSubmit: (String recipient, String subject, String body) {
                 String emailUrl =
                     'mailto:$recipient?subject=$subject&body=$body';
-                launch(emailUrl);
+                launchUrl(emailUrl as Uri);
               },
             ),
           );
         } else if (widget.projectTitle == "Calendly") {
-          // Handle Calendly link if needed
+         launchUrl(Uri.parse(kContactLinks[0]));
         }
       },
       child: Container(

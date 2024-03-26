@@ -304,21 +304,25 @@ class _MainPageState extends State<MainPage> {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 25.0, 0, 0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Center(
-                child: NavBarLogo(
-                  height: 24,
-                ),
+               IconButton(
+                icon: Icon(Icons.close),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
               ListTile(
                 leading: Icon(
                   Icons.lightbulb,
                   color: kPrimaryColor,
                 ),
-                title: Text("",
-                    style: TextStyle(
-                        color: theme.lightTheme ? Colors.black : Colors.white)),
+                title: Text(
+                  "Toggle Theme",
+                  style: TextStyle(
+                    color: theme.lightTheme ? Colors.black : Colors.white,
+                  ),
+                ),
                 trailing: Switch(
                   inactiveTrackColor: Colors.grey,
                   value: !theme.lightTheme,
