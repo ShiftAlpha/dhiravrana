@@ -308,6 +308,11 @@ class _MainPageState extends State<MainPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Center(
+                  child: NavBarLogo(
+                    height: 24,
+                  ),
+                ),
                 IconButton(
                   icon: Icon(Icons.close),
                   onPressed: () {
