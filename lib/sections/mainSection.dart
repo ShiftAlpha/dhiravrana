@@ -299,100 +299,103 @@ class _MainPageState extends State<MainPage> {
 
   Widget _appBarMobile(ThemeProvider theme) {
     return Drawer(
-      child: Material(
-        color: theme.lightTheme ? Colors.white : Colors.grey[900],
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 25.0, 0, 0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-               IconButton(
-                icon: Icon(Icons.close),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.lightbulb,
-                  color: kPrimaryColor,
+      width: MediaQuery.of(context).size.width * 1,
+      child: SingleChildScrollView(
+        child: Material(
+          color: theme.lightTheme ? Colors.white : Colors.grey[900],
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.close),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
-                title: Text(
-                  "Toggle Theme",
-                  style: TextStyle(
-                    color: theme.lightTheme ? Colors.black : Colors.white,
+                ListTile(
+                  leading: Icon(
+                    Icons.lightbulb,
+                    color: kPrimaryColor,
+                  ),
+                  // title: Text(
+                  //   "Toggle Theme",
+                  //   style: TextStyle(
+                  //     color: theme.lightTheme ? Colors.black : Colors.white,
+                  //   ),
+                  // ),
+                  trailing: Switch(
+                    inactiveTrackColor: Colors.grey,
+                    value: !theme.lightTheme,
+                    onChanged: (value) {
+                      theme.lightTheme = !value;
+                    },
+                    activeColor: kPrimaryColor,
                   ),
                 ),
-                trailing: Switch(
-                  inactiveTrackColor: Colors.grey,
-                  value: !theme.lightTheme,
-                  onChanged: (value) {
-                    theme.lightTheme = !value;
-                  },
-                  activeColor: kPrimaryColor,
+                for (int i = 0; i < _sectionsName.length; i++)
+                  _appBarActions(_sectionsName[i], i, _sectionsIcons[i], theme),
+                Divider(
+                  color: theme.lightTheme ? Colors.grey[200] : Colors.white,
                 ),
-              ),
-              for (int i = 0; i < _sectionsName.length; i++)
-                _appBarActions(_sectionsName[i], i, _sectionsIcons[i], theme),
-              Divider(
-                color: theme.lightTheme ? Colors.grey[200] : Colors.white,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: MaterialButton(
-                  hoverColor: kPrimaryColor.withAlpha(150),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      side: BorderSide(color: kPrimaryColor)),
-                  onPressed: () {
-                    launchURL(
-                        'https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing');
-                  },
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.book,
-                      color: Colors.green,
-                    ),
-                    title: Text(
-                      "CV",
-                      style: GoogleFonts.montserrat(
-                        fontWeight: FontWeight.w300,
-                        color: theme.lightTheme ? Colors.black : Colors.white,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: MaterialButton(
+                    hoverColor: kPrimaryColor.withAlpha(150),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                        side: BorderSide(color: kPrimaryColor)),
+                    onPressed: () {
+                      launchURL(
+                          'https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing');
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.book,
+                        color: Colors.green,
+                      ),
+                      title: Text(
+                        "CV",
+                        style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w300,
+                          color: theme.lightTheme ? Colors.black : Colors.white,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: MaterialButton(
-                  hoverColor: kPrimaryColor.withAlpha(150),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      side: BorderSide(color: kPrimaryColor)),
-                  onPressed: () {
-                    launchURL(
-                        "https://drive.google.com/file/d/1SaNng1Tlc4gFXt817Fo6uaurAXHfEVf2/view?usp=sharing");
-                  },
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.book,
-                      color: Colors.green,
-                    ),
-                    title: Text(
-                      "Cover Letter",
-                      style: GoogleFonts.montserrat(
-                        fontWeight: FontWeight.w300,
-                        color: theme.lightTheme ? Colors.black : Colors.white,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: MaterialButton(
+                    hoverColor: kPrimaryColor.withAlpha(150),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                        side: BorderSide(color: kPrimaryColor)),
+                    onPressed: () {
+                      launchURL(
+                          "https://drive.google.com/file/d/1SaNng1Tlc4gFXt817Fo6uaurAXHfEVf2/view?usp=sharing");
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.book,
+                        color: Colors.green,
+                      ),
+                      title: Text(
+                        "Cover Letter",
+                        style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w300,
+                          color: theme.lightTheme ? Colors.black : Colors.white,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Divider(
-                color: theme.lightTheme ? Colors.grey[200] : Colors.white,
-              ),
-            ],
+                Divider(
+                  color: theme.lightTheme ? Colors.grey[200] : Colors.white,
+                ),
+              ],
+            ),
           ),
         ),
       ),
