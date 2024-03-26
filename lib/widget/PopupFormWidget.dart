@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:dhiravrana/constants.dart'; // Import your constants file
+import 'package:url_launcher/url_launcher.dart'; // Import url_launcher package
 
 class PopupFormWidget extends StatefulWidget {
   final Function(String recipient, String subject, String body)
       onSubmit; // Define onSubmit callback
 
   const PopupFormWidget({Key? key, required this.onSubmit}) : super(key: key);
+
   @override
   _PopupFormWidgetState createState() => _PopupFormWidgetState();
 }
@@ -18,6 +19,15 @@ class _PopupFormWidgetState extends State<PopupFormWidget> {
   TextEditingController _phoneController = TextEditingController();
   TextEditingController _subjectController = TextEditingController();
   TextEditingController _messageController = TextEditingController();
+
+  void _sendEmail(String recipient, String subject, String body) async {
+    String emailUrl = 'mailto:$recipient?subject=$subject&body=$body';
+    if (await canLaunch(emailUrl)) {
+      await launch(emailUrl);
+    } else {
+      throw 'Could not launch $emailUrl';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,10 +137,14 @@ class _PopupFormWidgetState extends State<PopupFormWidget> {
                           String subject = _subjectController.text;
                           String message = _messageController.text;
 
-                          // Implement email sending logic here
-                          // Example: sendEmail(firstName, lastName, email, phone, subject, message);
+                          String recipientEmail = 'ranadhirav08@gmail.com';
+                          String emailSubject = 'New Message: $subject';
+                          String emailBody =
+                              'Name: $firstName $lastName\nEmail: $email\nPhone: $phone\nMessage: $message';
 
-                          widget.onSubmit(email, subject, message);
+                          // Call onSubmit function with email parameters
+                          widget.onSubmit(recipientEmail, emailSubject, emailBody);
+                          _sendEmail(recipientEmail, emailSubject, emailBody); // Send email
                           Navigator.of(context).pop(); // Close the popup
                         }
                       },
