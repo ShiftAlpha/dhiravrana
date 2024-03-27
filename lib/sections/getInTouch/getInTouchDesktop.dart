@@ -9,6 +9,7 @@ import 'package:dhiravrana/widget/socialMediaIcon.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:mailto/mailto.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class GetInTouchDesktop extends StatefulWidget {
@@ -407,8 +408,8 @@ class _GetInTouchDesktopState extends State<GetInTouchDesktop> {
                                   child: OutlinedCustomBtn(
                                     btnText: "Send",
                                     onPressed: () {
-                                      launchURL(
-                                          "mailto:");
+                                      launchUrl(
+                                          "mailto:" as Uri);
                                     },
                                   ),
                                 )

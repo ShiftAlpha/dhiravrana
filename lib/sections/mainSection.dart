@@ -14,6 +14,7 @@ import 'package:dhiravrana/sections/services/services.dart';
 import 'package:dhiravrana/widget/arrowOnTop.dart';
 import 'package:dhiravrana/widget/footer.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -352,8 +353,8 @@ class _MainPageState extends State<MainPage> {
                         borderRadius: BorderRadius.circular(5.0),
                         side: BorderSide(color: kPrimaryColor)),
                     onPressed: () {
-                      launchURL(
-                          'https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing');
+                      launch(
+                          'https://drive.google.com/file/d/1fOGoLKIK5gwOZ8sAWBIRVV8rTs7XhlbD/view?usp=sharing' );
                     },
                     child: ListTile(
                       leading: Icon(
@@ -378,7 +379,7 @@ class _MainPageState extends State<MainPage> {
                         borderRadius: BorderRadius.circular(5.0),
                         side: BorderSide(color: kPrimaryColor)),
                     onPressed: () {
-                      launchURL(
+                      launch(
                           "https://drive.google.com/file/d/1SaNng1Tlc4gFXt817Fo6uaurAXHfEVf2/view?usp=sharing");
                     },
                     child: ListTile(

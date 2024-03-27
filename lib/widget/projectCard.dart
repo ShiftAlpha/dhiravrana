@@ -64,7 +64,7 @@ class _ProjectCardState extends State<ProjectCard> {
               onSubmit: (String recipient, String subject, String body) {
                 String emailUrl =
                     'mailto:$recipient?subject=$subject&body=$body';
-                launchUrl(emailUrl as Uri);
+                launch(emailUrl);
               },
             ),
           );

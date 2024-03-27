@@ -9,6 +9,7 @@ import 'package:dhiravrana/widget/customBtn.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ServiceDetailsDesktop extends StatelessWidget {
   final String? serviceTitle;
@@ -124,7 +125,7 @@ class ServiceDetailsDescription extends StatelessWidget {
             alignment: Alignment.center,
             child: CustomFilledBtn(
               height: 40.0,
-              onPressed: () => launchURL("https://wa.me/?text=Hi Dhirav!"),
+              onPressed: () => launch("https://wa.me/?text=Hi Dhirav!"),
               btnColor: Color(0xff34CB62),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -141,7 +142,7 @@ class ServiceDetailsDescription extends StatelessWidget {
             alignment: Alignment.center,
             child: CustomFilledBtn(
               height: 40.0,
-              onPressed: () => launchURL(
+              onPressed: () => launch(
                   "https://www.upwork.com/freelancers/~0197b0f6aaeba9675f"),
               btnColor: Color(0xff13A800),
               child: Row(
@@ -220,8 +221,8 @@ class _ServicesShowCaseState extends State<ServicesShowCase> {
               ),
               kProjectsTitles[_currentIndex] == kProjectsTitles[1]
                   ? InkWell(
-                      onTap: () => launchURL(
-                          ""),
+                      onTap: () => launch(
+                          "" ),
                       child: Icon(
                         FontAwesomeIcons.googlePlay,
                         color: Colors.green,
@@ -229,7 +230,7 @@ class _ServicesShowCaseState extends State<ServicesShowCase> {
                   : Container(),
               Expanded(child: Container()),
               IconButton(
-                onPressed: () => launchURL(kProjectsLinks[_currentIndex]),
+                onPressed: () => launch(kProjectsLinks[_currentIndex]),
                 icon: Icon(Icons.arrow_forward,
                     color: _themeProvider.lightTheme
                         ? Colors.black

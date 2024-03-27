@@ -15,8 +15,8 @@ class PortfolioDesktop extends StatelessWidget {
     void launchURL() async {
       const url =
           'https://github.com/shiftAlpha'; // Replace with your desired URL
-      if (await canLaunchUrlString(url)) {
-        await launchUrl(url as Uri);
+      if (await canLaunch(url)) {
+        await launch(url);
       } else {
         throw 'Could not launch $url';
       }

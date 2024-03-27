@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dhiravrana/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CommunityIconBtn extends StatelessWidget {
   final String? icon;
@@ -16,7 +17,7 @@ class CommunityIconBtn extends StatelessWidget {
           icon!,
           height: height,
         ),
-        onTap: () => launchURL(link!),
+        onTap: () => launch(link!),
       ),
     );
   }
