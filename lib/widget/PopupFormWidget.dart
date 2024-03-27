@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore package
 import 'package:url_launcher/url_launcher.dart'; // Import url_launcher package
 
 class PopupFormWidget extends StatefulWidget {
-  final Function(String recipient, String subject, String body)
-      onSubmit; // Define onSubmit callback
+  final Function(String recipient, String subject, String body) onSubmit;
 
   const PopupFormWidget({Key? key, required this.onSubmit}) : super(key: key);
 
@@ -20,22 +20,60 @@ class _PopupFormWidgetState extends State<PopupFormWidget> {
   TextEditingController _subjectController = TextEditingController();
   TextEditingController _messageController = TextEditingController();
 
-  void _sendEmail(String recipient, String subject, String body) async {
-    String emailUrl = 'mailto:$recipient?subject=$subject&body=$body';
-    if (await canLaunch(emailUrl)) {
-      await launch(emailUrl);
-    } else {
-      throw 'Could not launch $emailUrl';
-    }
+  // void _sendEmail(String recipient, String subject, String body) async {
+  //   String emailUrl = 'mailto:$recipient?subject=$subject&body=$body';
+  //   if (await canLaunch((emailUrl))) {
+  //     await launch((emailUrl));
+  //   } else {
+  //     throw 'Could not launch $emailUrl';
+  //   }
+  // }
+  void _showConfirmationDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Message Sent'),
+          content: Text('Your message has been sent successfully.'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _storeFormData() {
+    String firstName = _firstNameController.text;
+    String lastName = _lastNameController.text;
+    String email = _emailController.text;
+    String phone = _phoneController.text;
+    String subject = _subjectController.text;
+    String message = _messageController.text;
+
+    // Store data in Cloud Firestore
+    FirebaseFirestore.instance.collection('user_messages').add({
+      'firstName': firstName,
+      'lastName': lastName,
+      'email': email,
+      'phone': phone,
+      'subject': subject,
+      'message': message,
+      'timestamp': FieldValue
+          .serverTimestamp(), // Optional: Timestamp when data was added
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      
       insetPadding: EdgeInsets.all(18.0),
       child: SizedBox(
-        
         width: 400,
         child: Container(
           padding: EdgeInsets.all(18.0),
@@ -98,7 +136,6 @@ class _PopupFormWidgetState extends State<PopupFormWidget> {
                     ],
                   ),
                   SizedBox(height: 20),
-                  SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
@@ -131,8 +168,6 @@ class _PopupFormWidgetState extends State<PopupFormWidget> {
                     ],
                   ),
                   SizedBox(height: 20),
-                  SizedBox(height: 20),
-                  SizedBox(height: 20),
                   TextFormField(
                     controller: _subjectController,
                     decoration: InputDecoration(labelText: 'Subject'),
@@ -144,11 +179,9 @@ class _PopupFormWidgetState extends State<PopupFormWidget> {
                     },
                   ),
                   SizedBox(height: 20),
-                  SizedBox(height: 20),
-                  SizedBox(height: 20),
                   TextFormField(
                     controller: _messageController,
-                    decoration: InputDecoration(labelText: 'Message\n\n'),
+                    decoration: InputDecoration(labelText: 'Message'),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please enter a message';
@@ -164,24 +197,23 @@ class _PopupFormWidgetState extends State<PopupFormWidget> {
                       ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            String firstName = _firstNameController.text;
-                            String lastName = _lastNameController.text;
-                            String email = _emailController.text;
-                            String phone = _phoneController.text;
-                            String subject = _subjectController.text;
-                            String message = _messageController.text;
+                            _storeFormData(); // Store form data in Firestore
+                            // String firstName = _firstNameController.text;
+                            // String lastName = _lastNameController.text;
+                            // String email = _emailController.text;
+                            // String phone = _phoneController.text;
+                            // String subject = _subjectController.text;
+                            // String message = _messageController.text;
 
-                            String recipientEmail = 'ranadhirav08@gmail.com';
-                            String emailSubject = 'New Message: $subject';
-                            String emailBody =
-                                'Name: $firstName $lastName\nEmail: $email\nPhone: $phone\nMessage: $message';
+                            // String recipientEmail = 'ranadhirav08@gmail.com';
+                            // String emailSubject = 'New Message: $subject';
+                            // String emailBody =
+                            //     'Name: $firstName $lastName\nEmail: $email\nPhone: $phone\nMessage: $message';
 
-                            // Call onSubmit function with email parameters
-                            widget.onSubmit(
-                                recipientEmail, emailSubject, emailBody);
-                            _sendEmail(recipientEmail, emailSubject,
-                                emailBody); // Send email
-                            Navigator.of(context).pop(); // Close the popup
+                            // widget.onSubmit(recipientEmail, emailSubject, emailBody);
+                            // _sendEmail(recipientEmail, emailSubject, emailBody);
+                            // Navigator.of(context).pop();
+                            _showConfirmationDialog(); // Close the popup
                           }
                         },
                         child: Text('Send'),
