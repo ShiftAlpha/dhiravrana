@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "849767020443",
+    "project_id": "portfolio-flutter-75e51",
+    "storage_bucket": "portfolio-flutter-75e51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849767020443:android:52e3dddaee904de8c5d33e",
+        "android_client_info": {
+          "package_name": "com.example.dhiravrana"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3_wlgN63HL1txOQV7sgaIpkWGNgzGfMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

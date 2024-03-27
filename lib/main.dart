@@ -6,8 +6,13 @@ import 'package:dhiravrana/sections/mainSection.dart';
 import 'package:dhiravrana/sections/serviceDetails/serviceDetails.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async{
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
   WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
   runApp(MyApp());
@@ -16,9 +21,12 @@ void main() {
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
+  
 }
 
 class _MyAppState extends State<MyApp> {
+  
+  
   ThemeProvider _themeProvider = ThemeProvider();
 
   void getCurrentAppTheme() async {
@@ -29,6 +37,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     getCurrentAppTheme();
     super.initState();
+    
   }
 
   @override
